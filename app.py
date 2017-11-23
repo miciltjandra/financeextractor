@@ -13,9 +13,9 @@ def main():
 
 @app.route("/finance_extractor")
 def render_view():
-    os.remove('input')
-    os.remove('out')
-    os.remove('out_to_process')
+    # os.remove('input')
+    # os.remove('out')
+    # os.remove('out_to_process')
     return render_template('forms.html')
 
 @app.route('/upload', methods=['POST'])
