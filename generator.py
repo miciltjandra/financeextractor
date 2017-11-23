@@ -2,7 +2,7 @@ import nltk
 
 # READ FILES
 array = []
-file = open('in', 'r')
+file = open('input', 'r')
 for line in file:
     print(line)
     inputs = nltk.word_tokenize(line)
