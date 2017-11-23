@@ -1,4 +1,5 @@
 from flask import Flask, json, request, render_template
+import os
 app = Flask(__name__)
 
 UPLOAD_FOLDER = 'temp'
@@ -12,15 +13,18 @@ def main():
 
 @app.route("/finance_extractor")
 def render_view():
+    os.remove('input')
+    os.remove('out')
+    os.remove('out_to_process')
     return render_template('forms.html')
 
 @app.route('/upload', methods=['POST'])
 def upload_file():
     f = request.files['file']
-    f.save('in')
+    f.save('input')
     import generator
-    # import chunkner
-    # import process
+    import chunkner
+    import process
     return 'file uploaded successfully'
 
 # @app.route('/result')
